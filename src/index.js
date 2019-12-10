@@ -12,7 +12,7 @@ const Main = () => `
       <div>${bgImage}</div>
     </div>
     <input type="text" id="search" class="rw-input-text" placeholder="Tell us where you want to go..."/>
-    <div id="search_result_container"></div>
+    <div id="search_result_container" class="search-result__container"></div>
   </div>
 `;
 
