@@ -2,10 +2,11 @@ import { request } from '../utils/requestHelper';
 import config from '../config';
 
 export const FlightInfo = async (event, parent) => {
-  const createdNode = document.getElementById('search_result');
+  const createdNode = document.getElementById(config.RESULT_CONTAINER_ID);
+  const searchList = document.getElementById(config.SEARCH_LIST_ID);
   const parentNode = document.getElementById(parent);
   const element = document.createElement('div');
-  element.id = 'search_result';
+  element.id = config.RESULT_CONTAINER_ID;
   element.classList = 'search_result';
 
   // const resultField = document.getElementById(target);
@@ -21,6 +22,6 @@ export const FlightInfo = async (event, parent) => {
   if (createdNode) {
     createdNode.remove();
   }
-
+  searchList.remove();
   parentNode.appendChild(element);
 };

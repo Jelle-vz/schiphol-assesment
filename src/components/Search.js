@@ -4,9 +4,9 @@ import config from '../config';
 export const Search = async (event, parent) => {
   const parentNode = document.getElementById(parent);
   const searchResultField = document.createElement('ul');
-  searchResultField.id = 'search-result-list';
+  searchResultField.id = config.SEARCH_LIST_ID;
   searchResultField.classList = 'search-list card';
-  const container = document.getElementById('search-result-list');
+  const container = document.getElementById(config.SEARCH_LIST_ID);
   const { value } = event.target;
 
   if (value && value.length > 1 && !container) {
