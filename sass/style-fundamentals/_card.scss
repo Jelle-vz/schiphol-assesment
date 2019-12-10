@@ -1,4 +1,14 @@
 .card {
   background-color: white;
-  box-shadow: 2px 4px 3px 3px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+
+  &.shadow {
+    box-shadow: 2px 4px 3px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  &.border {
+    border: 1px solid $afternoon-blue;
+  }
+
+
 }

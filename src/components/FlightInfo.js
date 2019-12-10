@@ -7,16 +7,21 @@ export const FlightInfo = async (event, parent) => {
   const parentNode = document.getElementById(parent);
   const element = document.createElement('div');
   element.id = config.RESULT_CONTAINER_ID;
-  element.classList = 'search_result';
+  element.classList = 'search_result card';
 
-  // const resultField = document.getElementById(target);
   const data = await request(config.API_URL, []);
   const result = data.flights.find((item) => item.airport === event.target.textContent);
-  const list = Object.keys(result).map((item) => `<div>${item} : ${result[item]}</div>`).join('');
+  const list = Object.keys(result).map((item) => (
+    `<div>
+      ${item} : ${result[item]}
+    </div>`
+  )).join('');
 
   element.innerHTML = `
     <h2>${result.airport} </h2>
     ${list}
+    <br/>
+    <a class="rw-button" href="//www.schiphol.nl/${result.url}" target="_blank">More info</a>
   `;
 
   if (createdNode) {
