@@ -1,0 +1,18 @@
+.search-list {
+  margin: 0;
+  padding: 0;
+
+  .rw-autosuggest__results-flights {
+    color: $afternoon-blue;
+    font-size: 1rem;
+    font-weight: 400;
+    list-style: none;
+    padding: .75rem 1.25rem;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $afternoon-blue;
+      color: white;
+    }
+  }
+}

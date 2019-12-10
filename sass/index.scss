@@ -1,2 +1,26 @@
 @import './style-fundamentals/all';
 @import './style-core/all';
+
+body {
+  background-color: #f4f7fc;
+}
+
+.wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+
+  left: 0;
+  right: 0;
+
+  background-color: white;
+  max-width: 1000px ;
+  margin: auto;
+  padding: 1%;  
+
+  .heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
