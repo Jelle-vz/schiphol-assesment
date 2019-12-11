@@ -3,6 +3,24 @@
 
 body {
   background-color: #f4f7fc;
+  
+  &.loading {
+    background-color: white;
+   .wrapper {
+     display: none !important;
+     * {
+      display: none !important;
+     }
+   }
+  }
+  &:after {
+    content: '';
+    display: block;
+    margin: auto;
+    width: 340px;
+    height: 340px;
+    background-image: url('/static/plane_loading.gif');
+  }
 }
 
 .wrapper {
