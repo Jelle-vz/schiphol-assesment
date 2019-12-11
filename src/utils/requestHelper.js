@@ -6,4 +6,8 @@ export const request = (url, defaultResponse) => fetch(`${url}`)
     }
     throw new Error();
   })
-  .catch(() => defaultResponse);
+  .catch((err) => {
+    // eslint-disable-next-line no-console
+    console.error(err);
+    return defaultResponse;
+  });
