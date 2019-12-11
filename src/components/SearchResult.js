@@ -36,6 +36,6 @@ export const SearchResult = async (event, parent, data) => {
     container.innerHTML = mapResults(result);
   }
   if (value && value.length < 3 && container) {
-    container.remove();
+    container.innerHTML = '';
   }
 };
