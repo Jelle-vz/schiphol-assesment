@@ -1,5 +1,8 @@
-import { request } from '../utils/requestHelper';
+// Base
 import config from '../config';
+
+// Utils
+import { request } from '../utils/requestHelper';
 
 export const FlightInfo = async (event, parent) => {
   const createdNode = document.getElementById(config.RESULT_CONTAINER_ID);

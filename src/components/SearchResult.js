@@ -1,5 +1,9 @@
-import { request } from '../utils/requestHelper';
+// Base
 import config from '../config';
+
+// Utils
+import { request } from '../utils/requestHelper';
+
 
 export const SearchResult = async (event, parent) => {
   const { value } = event.target;
