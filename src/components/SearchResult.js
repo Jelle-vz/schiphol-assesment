@@ -2,14 +2,9 @@
 import config from '../config';
 
 
-export const SearchResult = async (event, parent, data) => {
+export const SearchResult = async (event, data) => {
   const { value } = event.target;
-  const parentNode = document.getElementById(parent);
   const container = document.getElementById(config.SEARCH_LIST_ID);
-
-  const searchResultField = document.createElement('ul');
-  searchResultField.id = config.SEARCH_LIST_ID;
-  searchResultField.classList = 'search-list card shadow';
 
   const mapResults = (result) => result.map((item, idx) => (
     `<li 
@@ -25,17 +20,19 @@ export const SearchResult = async (event, parent, data) => {
     return; // Should trigger a notification
   }
 
-  if (value && value.length > 1 && !container) {
-    parentNode.appendChild(searchResultField);
-  }
-
   if (value && value.length > 2 && container) {
     const regExp = new RegExp(value, 'i');
 
     const result = data.filter((item) => item.airport.match(regExp));
     container.innerHTML = mapResults(result);
+
+    if (result.length > 0) {
+      container.innerHTML = mapResults(result);
+      container.style.display = 'block';
+    }
   }
   if (value && value.length < 3 && container) {
     container.innerHTML = '';
+    container.style.display = 'none';
   }
 };

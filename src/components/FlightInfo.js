@@ -37,7 +37,8 @@ export const FlightInfo = async (event, parent, data) => {
   }
 
   if (searchList) {
-    searchList.remove();
+    searchList.innerHTML = '';
+    searchList.style.display = 'none';
   }
 
   parentNode.appendChild(element);

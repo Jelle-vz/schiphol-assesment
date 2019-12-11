@@ -17,8 +17,7 @@ const initialDataLoaded = (data) => {
   document.getElementById('main').classList = '';
   document.getElementById('hero_image').innerHTML = bgImage;
 
-  document.getElementById('search')
-    .addEventListener('keyup', (event) => SearchResult(event, config.SEARCH_RESULT_WRAPPER_ID, flights));
+  document.getElementById('search').addEventListener('keyup', (event) => SearchResult(event, flights));
 
   document.addEventListener('click', (event) => {
     if (event.target && event.target.id.startsWith('q-listitem-')) {
