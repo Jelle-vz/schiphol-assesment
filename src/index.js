@@ -1,11 +1,11 @@
-import { Search } from './components/Search';
+import { SearchResult } from './components/SearchResult';
 import { FlightInfo } from './components/FlightInfo';
 
 import bgImage from './assets/svg/woman-sitting';
 
 import '../sass/index.scss';
 
-const Main = () => `
+const main = () => `
   <div class="wrapper card">
     <div class="heading">
       <div><h1>Welcome traveler</h1></div>
@@ -16,8 +16,8 @@ const Main = () => `
   </div>
 `;
 
-document.getElementById('main').innerHTML = Main();
-document.getElementById('search').addEventListener('keyup', (event) => Search(event, 'search_result_container'));
+document.getElementById('main').innerHTML = main();
+document.getElementById('search').addEventListener('keyup', (event) => SearchResult(event, 'search_result_container'));
 document.addEventListener('click', (event) => {
   if (event.target && event.target.id.startsWith('q-listitem-')) {
     FlightInfo(event, 'search_result_container');
