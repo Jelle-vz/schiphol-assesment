@@ -26,10 +26,13 @@ describe('Flight info suite', () => {
 
   it('Should render correct flight info', async () => {
     const airport = 'San Francisco';
-
     await FlightInfo({
       target: {
-        textContent: airport,
+        attributes: {
+          'data-destination': {
+            nodeValue: airport,
+          },
+        },
       },
     }, parentId, mockData.flights);
 
@@ -41,7 +44,11 @@ describe('Flight info suite', () => {
 
     await FlightInfo({
       target: {
-        textContent: airport,
+        attributes: {
+          'data-destination': {
+            nodeValue: airport,
+          },
+        },
       },
     }, parentId, mockData.flights);
 
