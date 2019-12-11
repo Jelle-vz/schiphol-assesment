@@ -35,7 +35,7 @@ describe('Search result suite', () => {
       target: {
         value: airport,
       },
-    }, parentId, mockData.flights);
+    }, mockData.flights);
 
     expect(document.body.querySelector(`#${parentId}`).children.length).toBe(nrOfResults);
   });
@@ -48,7 +48,7 @@ describe('Search result suite', () => {
       target: {
         value: airport,
       },
-    }, parentId, mockData.flights);
+    }, mockData.flights);
 
     expect(document.body.querySelector(`#${parentId}`).children.length).toBe(nrOfResults);
   });
@@ -62,7 +62,7 @@ describe('Search result suite', () => {
       target: {
         value: airport,
       },
-    }, parentId, mockData.flights);
+    }, mockData.flights);
 
     expect(document.body.querySelector(`#${parentId}`).children.length).toBe(nrOfResults);
   });
