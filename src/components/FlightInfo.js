@@ -1,35 +1,44 @@
 // Base
 import config from '../config';
 
-// Utils
-import { request } from '../utils/requestHelper';
-
-export const FlightInfo = async (event, parent) => {
+export const FlightInfo = async (event, parent, data) => {
   const createdNode = document.getElementById(config.RESULT_CONTAINER_ID);
   const searchList = document.getElementById(config.SEARCH_LIST_ID);
   const parentNode = document.getElementById(parent);
+
   const element = document.createElement('div');
   element.id = config.RESULT_CONTAINER_ID;
   element.classList = 'search_result card';
 
-  const data = await request(config.API_URL, []);
-  const result = data.flights.find((item) => item.airport === event.target.textContent);
-  const list = Object.keys(result).map((item) => (
+  const result = data && data.find((item) => item.airport === event.target.textContent);
+  const list = result ? Object.keys(result).map((item) => (
     `<div>
       ${item} : ${result[item]}
     </div>`
-  )).join('');
+  )).join('') : '';
 
-  element.innerHTML = `
-    <h2>${result.airport} </h2>
-    ${list}
-    <br/>
-    <a class="rw-button" href="//www.schiphol.nl/${result.url}" target="_blank">More info</a>
-  `;
+  if (!data || data.length === 0) {
+    return; // Should trigger a notification
+  }
+
+  if (result) {
+    element.innerHTML = `
+      <h2>${result.airport}</h2>
+      ${list}
+      <br/>
+      <a class="rw-button" href="//www.schiphol.nl/${result.url}" target="_blank">More info</a>
+    `;
+  } else {
+    element.innerHTML = 'Sorry no data available';
+  }
 
   if (createdNode) {
     createdNode.remove();
   }
-  searchList.remove();
+
+  if (searchList) {
+    searchList.remove();
+  }
+
   parentNode.appendChild(element);
 };
