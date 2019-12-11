@@ -27,4 +27,4 @@ const initialDataLoaded = (data) => {
   });
 };
 
-request(config.API_URL, []).then((response) => initialDataLoaded(response));
+request(config.API_URL, []).then(initialDataLoaded);
