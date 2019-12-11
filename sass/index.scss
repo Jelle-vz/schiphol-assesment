@@ -41,5 +41,18 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    svg {
+      max-width: 100%;
+    }
+
+    @media only screen and (max-width: 600px) {
+      text-align: center;
+      flex-direction: column-reverse;
+
+      h1 {
+        margin: -35px 0 20px;
+      }
+    }
   }
 }
