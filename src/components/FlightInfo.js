@@ -10,7 +10,7 @@ export const FlightInfo = async (event, parent, data) => {
   element.id = config.RESULT_CONTAINER_ID;
   element.classList = 'search_result card';
 
-  const result = data && data.find((item) => item.airport === event.target.textContent);
+  const result = data && data.find((item) => item.airport === event.target.attributes['data-destination'].nodeValue);
   const list = result ? Object.keys(result).map((item) => (
     `<div>
       ${item} : ${result[item]}

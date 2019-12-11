@@ -12,7 +12,13 @@ export const SearchResult = async (event, parent, data) => {
   searchResultField.classList = 'search-list card shadow';
 
   const mapResults = (result) => result.map((item, idx) => (
-    `<li id="q-listitem-${idx}" class="rw-autosuggest__results-flights">${item.airport}</li>`
+    `<li 
+      id="q-listitem-${idx}" 
+      class="rw-autosuggest__results-flights"
+      data-destination="${item.airport}"
+    >
+      ${item.airport} | ${item.flightNumber}
+    </li>`
   )).join('');
 
   if (!data || data.length === 0) {
