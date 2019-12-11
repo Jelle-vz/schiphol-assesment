@@ -1,11 +1,13 @@
+// Base
 import config from '../config';
+
+// Components
 import { FlightInfo } from './FlightInfo';
 
 // Mockdata
 import mockData from '../../static/flights.json';
 
 const parentId = config.SEARCH_RESULT_WRAPPER_ID;
-
 
 const createParent = () => {
   const node = document.createElement('div');

@@ -1,7 +1,6 @@
 // Base
 import config from '../config';
 
-
 export const SearchResult = async (event, data) => {
   const { value } = event.target;
   const container = document.getElementById(config.SEARCH_LIST_ID);
